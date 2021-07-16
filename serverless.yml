@@ -73,21 +73,14 @@ package:
     # - include-me-dir/**
 
 functions:
-  hello:
-    handler: src/handlers/hello.sayHello
+  get-user:
+    handler: src/handlers/get-user.handler
     events:
-      - http: true
-        methods:
-          - GET
-        authLevel: anonymous # can also be `function` or `admin`
-
-  goodbye:
-    handler: src/handlers/goodbye.sayGoodbye
-    events:
-      - http: true
+      - http: true  
         methods:
           - GET
         authLevel: anonymous
+        route: user/{name}
   # The following are a few examples of other events you can configure:
   # storageBlob:
   #   handler: src/handlers/storageBlob.printMessage

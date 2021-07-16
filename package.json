@@ -4,13 +4,15 @@
   "description": "Azure Functions sample for the Serverless framework",
   "scripts": {
     "test": "echo \"No tests yet...\"",
-    "start": "sls offline"
+    "start": "sls offline --noPrependStageInUrl"
   },
   "keywords": [
     "azure",
     "serverless"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "axios": "^0.21.1"
+  },
   "devDependencies": {
     "serverless-azure-functions": "^2.0.0",
     "serverless-offline": "^7.0.0"
