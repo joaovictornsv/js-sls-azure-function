@@ -5,7 +5,7 @@ const { api } = require('../src/utils/api');
 const { contextMock } = require('./mocks/contextMock');
 const { requestMock } = require('./mocks/requestMock');
 
-describe('getUserHandler', () => {
+describe('get-user', () => {
   let sandbox;
   let apiMock;
 
