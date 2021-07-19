@@ -9,11 +9,20 @@ module.exports.handler = async function (context, req) {
   context.log(`Get ${name} data`)
   const { data } = await api.get(`/${name}`);
 
-  context.res = {
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: data,
-  };
+  if (!name) {
+    context.res = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: { error: 'Provide a username' },
+    };
+  } else {
+    context.res = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: data,
+    };
+  }
   
 };

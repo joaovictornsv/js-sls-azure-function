@@ -1,0 +1,4 @@
+{
+  "mochaExplorer.files": "__tests__/**.spec.js",
+  "mochaExplorer.require": ""
+}
