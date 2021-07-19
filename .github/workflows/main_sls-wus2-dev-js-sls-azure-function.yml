@@ -30,12 +30,25 @@ jobs:
       run: |
         pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
         npm install
+        npm audit fix
         npm run build --if-present
         npm run test --if-present
         popd
 
+    - name: 'Run coverage'
+      shell: pwsh
+      run: |
+        pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
+        npm run test:coverage
+        npm audit fix
+        popd
+    - uses: codecov/codecov-action@v1
+      with:
+        directory: ./coverage/
+
+
     - name: 'Run Azure Functions Action'
-      uses: Azure/functions-action@v1
+      uses: Azure/functions-action@v1.3.1
       id: fa
       with:
         app-name: 'sls-wus2-dev-js-sls-azure-function'
