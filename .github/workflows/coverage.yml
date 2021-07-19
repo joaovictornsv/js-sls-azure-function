@@ -48,7 +48,7 @@ jobs:
       run: npm run deploy
     
     - name: Azure CLI script
-      uses: azure/CLI@v1
+    - uses: azure/CLI@v1
       with:
         azcliversion: 2.0.72
         inlineScript: |
