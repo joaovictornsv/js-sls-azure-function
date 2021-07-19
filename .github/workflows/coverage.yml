@@ -37,20 +37,3 @@ jobs:
       uses: codecov/codecov-action@v1
       with:
         directory: ./coverage/
-
-    - name: Azure Login
-      uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-    - name: Deploy
-      run: |
-        az login --service-principal -u ${{ secrets.AZURE_APP_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}
-        az account set -s ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-        npm run deploy
-    
-    - name: Azure Logout
-      run: |
-        az logout
-        az cache purge
-        az account clear
