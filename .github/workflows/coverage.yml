@@ -44,7 +44,9 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - name: Deploy
-      run: npm run deploy
+      run: |
+        az account set -s ${{ secrets.AZURE_CREDENTIALS.subscriptionId }}
+        npm run deploy
     
     - name: Azure Logout
       run: |
