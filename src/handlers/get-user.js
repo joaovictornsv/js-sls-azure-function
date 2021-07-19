@@ -21,7 +21,10 @@ module.exports.handler = async function (context, req) {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: data,
+      body: {
+        user: name,
+        data
+      },
     };
   }
   
