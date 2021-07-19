@@ -35,7 +35,9 @@ jobs:
         npm run test --if-present
         npm run test:coverage
         popd
-      uses: codecov/codecov-action@v1
+    - uses: codecov/codecov-action@v1
+      with:
+          directory: ./coverage/
 
     - name: 'Run Azure Functions Action'
       uses: Azure/functions-action@v1.3.1
